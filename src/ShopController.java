@@ -231,7 +231,7 @@ public class ShopController implements Initializable {
                 value += lb.getPrice() * lb.getNumInStock();
             }
 
-            labCatVal.setText("$" + String.format("%1$,.2f",inventory.lootboxes.get(chosenCategory).stream().mapToDouble(lb -> lb.getPrice() * lb.getNumInStock()).sum()));
+            labCatVal.setText("$" + String.format("%1$,.2f",inventory.getLootboxes().get(chosenCategory).stream().mapToDouble(lb -> lb.getPrice() * lb.getNumInStock()).sum()));
         }else {
             labCatVal.setText("N/A");
         }
@@ -244,7 +244,7 @@ public class ShopController implements Initializable {
 
 
 
-        labInvVal.setText("$" + String.format("%1$,.2f",inventory.lootboxes.values().stream().mapToDouble(lbList -> {
+        labInvVal.setText("$" + String.format("%1$,.2f",inventory.getLootboxes().values().stream().mapToDouble(lbList -> {
             double i = 0;
             for(Lootbox lb:lbList){
                 i += lb.getPrice() * lb.getNumInStock();

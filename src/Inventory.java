@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Inventory {
 
-    TreeMap<String, LinkedList<Lootbox>> lootboxes;
+    private TreeMap<String, LinkedList<Lootbox>> lootboxes;
 
-    public LinkedList<String> allowedGameTypes;
+    private LinkedList<String> allowedGameTypes;
 
     /**
      * Inventory constructor
@@ -37,8 +37,9 @@ public class Inventory {
         return allowedGameTypes;
     }
 
-
-
+    public TreeMap<String, LinkedList<Lootbox>> getLootboxes() {
+        return lootboxes;
+    }
 
     public LinkedList<String> getGameTypes() {
         return allowedGameTypes;
