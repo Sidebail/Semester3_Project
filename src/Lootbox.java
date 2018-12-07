@@ -31,7 +31,15 @@ public class Lootbox implements Comparable<Lootbox>{
                  "Battle Royale"
         ));
 
-
+    /**
+     * Lootbox constructor
+     * @param name
+     * @param gameType
+     * @param rarity
+     * @param price
+     * @param numOfItems
+     * @param numInStock
+     */
         public Lootbox(String name, String gameType, String rarity, double price, int numOfItems, int numInStock){
 
             setName(name);
@@ -42,6 +50,11 @@ public class Lootbox implements Comparable<Lootbox>{
             setNumInStock(numInStock);
             setImage();
         }
+
+    /**
+     * All getters and setters with validation (is necessary)
+     *
+     */
 
 
     public String getName() {

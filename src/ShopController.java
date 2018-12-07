@@ -47,6 +47,10 @@ public class ShopController implements Initializable {
     @FXML
     private Label labCatVal;
 
+    /**
+     * onClick event for the Sell button
+     * @param event
+     */
     @FXML
     void onClickSell(ActionEvent event) {
 
@@ -58,6 +62,10 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * onClick event for radio button
+     * @param event
+     */
     @FXML
     void onRadioHighToLow(ActionEvent event) {
         rbName.setSelected(false);
@@ -68,6 +76,10 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * onClick event for radio button
+     * @param event
+     */
     @FXML
     void onRadioLowToHigh(ActionEvent event) {
         rbName.setSelected(false);
@@ -78,6 +90,10 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * onClick event for radio button
+     * @param event
+     */
     @FXML
     void onRadioName(ActionEvent event) {
         rbName.setSelected(true);
@@ -88,6 +104,10 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * onClick event for radio button
+     * @param event
+     */
     @FXML
     void onRadioRarity(ActionEvent event) {
         rbName.setSelected(false);
@@ -98,6 +118,10 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * Category change listener
+     * @param event
+     */
     @FXML
     void onCategoryChosen(ActionEvent event) {
         if (!cbGametypes.getValue().equals("All...")){
@@ -108,6 +132,10 @@ public class ShopController implements Initializable {
 
     }
 
+    /**
+     * onClick listener for the list view
+     * @param event
+     */
     @FXML
     void onListClick(MouseEvent event) {
 
@@ -122,6 +150,11 @@ public class ShopController implements Initializable {
     private int selectedItemIndex = 0;
 
 
+    /**
+     * Initialize method for ShopController. Sets lootboxes, populates the inventory
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -160,6 +193,9 @@ public class ShopController implements Initializable {
 
     }
 
+    /**
+     * Sets all lootboxes from inventory to the local lootboxes list
+     */
     public void allLootboxes(){
 
         chosenCategory = "";
@@ -169,6 +205,10 @@ public class ShopController implements Initializable {
 
     }
 
+    /**
+     * Sets all lootboxes of a specific category from inventory to the local lootboxes list
+     * @param category
+     */
     public void categorizedLootboxes(String category){
 
         lootboxesList = inventory.getCategorizedLootboxes(category);
@@ -178,6 +218,9 @@ public class ShopController implements Initializable {
         updateView();
     }
 
+    /**
+     * A method to update all view components: counters, list view, image and etc.
+     */
     public void updateView(){
         lvList.getItems().clear();
 
@@ -232,6 +275,9 @@ public class ShopController implements Initializable {
     }
 
 
+    /**
+     * A method that does sorting, according to the radio buttons values
+     */
     public void customSorting(){
         if (rbName.isSelected()){
             lootboxesList.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));

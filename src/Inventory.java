@@ -9,6 +9,9 @@ public class Inventory {
 
     public LinkedList<String> allowedGameTypes;
 
+    /**
+     * Inventory constructor
+     */
     public Inventory(){
 
         lootboxes = new TreeMap<>();
@@ -41,6 +44,10 @@ public class Inventory {
         return allowedGameTypes;
     }
 
+    /**
+     * Getter for all lootboxes objects in inventory with a return of strings
+     * @return
+     */
     public LinkedList<String> getAllLootboxesStrings() {
 
         LinkedList<String> lbAll = new LinkedList<>();
@@ -54,6 +61,10 @@ public class Inventory {
         return lbAll;
     }
 
+    /**
+     * Getter for all lootboxes objects in inventory
+     * @return
+     */
     public LinkedList<Lootbox> getAllLootboxes() {
 
         LinkedList<Lootbox> lbAll = new LinkedList<>();
@@ -67,6 +78,11 @@ public class Inventory {
         return lbAll;
     }
 
+    /**
+     * Getter for lootboxes objects under a category returning as strings
+     * @param key
+     * @return
+     */
     public LinkedList<String> getCategorizedLootboxesStrings (String key) {
 
         LinkedList<String> lbCats = new LinkedList<>();
@@ -77,6 +93,11 @@ public class Inventory {
         return lbCats;
     }
 
+    /**
+     * Getter for lootboxes objects under a category
+     * @param key
+     * @return
+     */
     public LinkedList<Lootbox> getCategorizedLootboxes(String key) {
 
         LinkedList<Lootbox> lbCats = new LinkedList<>();
@@ -88,6 +109,11 @@ public class Inventory {
     }
 
 
+    /**
+     * Method which adds a given lootbox object to a specified category
+     * @param key
+     * @param lootbox
+     */
     public void addLootbox (String key,Lootbox lootbox){
 
         System.out.println(lootboxes.toString());
