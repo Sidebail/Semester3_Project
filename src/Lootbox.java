@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Lootbox {
+public class Lootbox implements Comparable<Lootbox>{
 
         private String name, rarity, gameType;
         private double price;
@@ -14,7 +14,7 @@ public class Lootbox {
 
         private Image thumbnail;
 
-        private ArrayList<String> allowedRarity = new ArrayList<String>(Arrays.asList(
+        public ArrayList<String> allowedRarity = new ArrayList<String>(Arrays.asList(
                 "Common",
                 "Uncommon",
                 "Rare",
@@ -40,8 +40,7 @@ public class Lootbox {
             setPrice(price);
             setNumOfItems(numOfItems);
             setNumInStock(numInStock);
-            setThumbnail(rarity, gameType);
-
+            setImage();
         }
 
 
@@ -128,18 +127,52 @@ public class Lootbox {
         }
     }
 
-    public Image getThumbnail() {
+
+
+
+
+    public void sellLootbox(){
+        if (numInStock > 0){
+            numInStock--;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return rarity + " " + name + " (" + numOfItems +" items)     PRICE: " + price + "; In stock: " + numInStock ;
+    }
+
+
+    @Override
+    public int compareTo(Lootbox o) {
+        if (allowedGameTypes.indexOf(rarity) > allowedGameTypes.indexOf(o.getRarity())){
+           return 1;
+        }
+
+        if (allowedGameTypes.indexOf(rarity) < allowedGameTypes.indexOf(o.getRarity())){
+            return -1;
+        }
+
+        return 0;
+    }
+
+    public void setImage(){
+
+            try {
+                thumbnail = new Image((("images/" + getRarity()+"_"+getName()+".png").replaceAll("\\s","")).toLowerCase());
+            }catch (IllegalArgumentException e){
+                thumbnail = new Image("images/default.jpg");
+            }
+
+
+        System.out.println((("images/" + getRarity()+"_"+getName()+".png").replaceAll("\\s","")).toLowerCase());
+    }
+
+    public Image getImage(){
         return thumbnail;
     }
 
-    /**
-     * Sets the correct image according to rarity and game type
-     * @param rarity
-     * @param gameType
-     */
-    public void setThumbnail(String rarity, String gameType) {
-        this.thumbnail = thumbnail;
-    }
+
 }
 
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShopController">
+   <children>
+      <ListView fx:id="lvList" layoutX="30.0" layoutY="20.0" onMouseClicked="#onListClick" prefHeight="200.0" prefWidth="479.0" />
+      <ComboBox fx:id="cbGametypes" layoutX="28.0" layoutY="220.0" onAction="#onCategoryChosen" prefHeight="31.0" prefWidth="193.0" promptText="Choose category..." />
+      <Label layoutX="236.0" layoutY="225.0" text="Sort order" />
+      <VBox layoutX="236.0" layoutY="246.0" prefHeight="89.0" prefWidth="165.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="rbPriceHigh" mnemonicParsing="false" onAction="#onRadioHighToLow" prefHeight="21.0" prefWidth="159.0" text="Price high to low" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="rbPriceLow" mnemonicParsing="false" onAction="#onRadioLowToHigh" prefHeight="21.0" prefWidth="146.0" text="Price low to high" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="rbName" mnemonicParsing="false" onAction="#onRadioName" text="Name A-&gt;Z" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="rbRarity" mnemonicParsing="false" onAction="#onRadioRarity" text="By Rarity" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="imgImage" fitHeight="200.0" fitWidth="241.0" layoutX="523.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="bSell" layoutX="600.0" layoutY="230.0" mnemonicParsing="false" onAction="#onClickSell" text="Sell 1 Unit" />
+      <Label layoutX="28.0" layoutY="334.0" text="Total inventory value" />
+      <Label layoutX="28.0" layoutY="369.0" text="Total category value" />
+      <Label fx:id="labInvVal" layoutX="178.0" layoutY="334.0" text="Label" />
+      <Label fx:id="labCatVal" layoutX="178.0" layoutY="369.0" text="Label" />
+   </children>
+</AnchorPane>
